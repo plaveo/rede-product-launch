@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from 'react'
 
 const SIGNALS = [
-  { label: 'Foundation & Activity', value: 92 },
-  { label: 'Connectivity', value: 78 },
-  { label: 'Market Dynamics', value: 85 },
-  { label: 'Risk & Opportunity', value: 71 },
-  { label: 'Strategic Position', value: 88 },
+  { label: 'People', value: 76 },
+  { label: 'Economy', value: 69 },
+  { label: 'Movement', value: 83 },
+  { label: 'Infrastructure', value: 74 },
+  { label: 'Connectivity', value: 91 },
 ]
 
 function useInView<T extends HTMLElement>() {

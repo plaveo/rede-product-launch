@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,14 +22,24 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
-        <div className="flex-1" />
+        <a href="/" className="flex flex-1 items-center" aria-label="REDE home">
+          <Image
+            src="/rede-mark.png"
+            alt="REDE logo"
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9"
+          />
+        </a>
 
         <div className="hidden items-center gap-8 md:flex">
           {[
-            ['Overview', '#what'],
-            ['How it works', '#how'],
-            ['Lenses', '#lenses'],
-            ['Program', '#program'],
+            ['Overview', '/#what'],
+            ['How it works', '/#how'],
+            ['Lenses', '/#lenses'],
+            ['Program', '/#program'],
+            ['The Book', '/book'],
           ].map(([label, href]) => (
             <a
               key={href}
@@ -40,12 +51,7 @@ export function Nav() {
           ))}
         </div>
 
-        <a
-          href="#join"
-          className="rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
-        >
-          Request access
-        </a>
+        <div className="flex-1" />
       </nav>
     </header>
   )

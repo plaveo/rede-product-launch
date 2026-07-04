@@ -49,6 +49,13 @@ export function StressTest() {
               </div>
             ))}
           </dl>
+
+          <a
+            href="/stress-test#apply"
+            className="rede-lift mt-8 inline-flex h-12 items-center justify-center rounded-xl bg-primary px-7 font-rede text-[15px] font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90"
+          >
+            Apply to the program
+          </a>
         </Reveal>
 
         <Reveal delay={120} className="relative">
