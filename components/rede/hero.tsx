@@ -22,11 +22,14 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="mt-7 flex items-baseline justify-center gap-1">
-            <h1 className="font-rede text-5xl font-semibold tracking-tight text-foreground md:text-7xl">
-              REDE
-            </h1>
-            <span className="font-rede text-lg font-medium text-primary md:text-2xl">™</span>
+          <div className="mt-7 flex items-center justify-center">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_2219-mJt2RjfvNDodJ2D7DCqVtlBLdSwFwR.jpeg"
+              alt="REDE logo"
+              width={120}
+              height={120}
+              className="h-24 w-24 md:h-36 md:w-36"
+            />
           </div>
         </Reveal>
 
