@@ -5,24 +5,24 @@ import { Reveal } from './reveal'
 
 const GROUPS = [
   {
-    lens: 'Foundation & Activity',
-    signals: ['Title Integrity', 'Building Age', 'Turnover Rate', 'Occupancy', 'Developer Track Record', 'Unit Mix'],
+    lens: 'People',
+    signals: ['Population Density', 'Population Growth', 'Median Age', 'Catchment Size', 'Buyer/Tenant Mix', 'Demand Durability'],
   },
   {
-    lens: 'Connectivity & Environment',
-    signals: ['Transit Access', 'Road Network', 'Walkability', 'Amenities', 'Green Space', 'Noise Profile'],
+    lens: 'Economy',
+    signals: ['Price per sqm', 'Price Momentum', 'BIR Zonal Anchor', 'Gross Yield', 'Holding Costs', 'Vacancy Level'],
   },
   {
-    lens: 'Market Dynamics',
-    signals: ['Price Trend', 'Supply Pipeline', 'Absorption', 'Rental Yield', 'Days on Market', 'Demand Index'],
+    lens: 'Movement',
+    signals: ['Accessibility', 'Human Flow', 'Absorption', 'Demand Drivers', 'Congestion', 'Rental Pace'],
   },
   {
-    lens: 'Risk & Opportunity',
-    signals: ['Flood Exposure', 'Oversupply Risk', 'Liquidity', 'Price Volatility', 'Upside Potential', 'Tenant Quality'],
+    lens: 'Infrastructure',
+    signals: ['Utilities', 'Build Quality', 'Developer Record', 'Development Activity', 'Flood/Seismic', 'Future Projects'],
   },
   {
-    lens: 'Strategic Positioning',
-    signals: ['Comparative Value', 'Scarcity', 'Prestige', 'Growth Corridor', 'Exit Options', 'Positioning Score'],
+    lens: 'Connectivity',
+    signals: ['Transit Reach', 'Hub Proximity', 'Demand Anchors', 'Walkability', 'Regional Links', 'City Integration'],
   },
 ]
 

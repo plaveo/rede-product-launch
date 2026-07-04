@@ -28,10 +28,10 @@ export function Hero() {
             <Image
               src="/rede-mark.png"
               alt="REDE logo"
-              width={288}
-              height={288}
+              width={360}
+              height={360}
               priority
-              className="h-24 w-24 md:h-36 md:w-36"
+              className="h-32 w-32 md:h-48 md:w-48"
             />
           </div>
         </Reveal>

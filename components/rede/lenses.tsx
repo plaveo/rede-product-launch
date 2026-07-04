@@ -6,28 +6,33 @@ import { Reveal } from './reveal'
 const LENSES = [
   {
     index: '01',
-    title: 'Foundation & Activity',
-    desc: 'The fundamentals of the property and the pulse of what is happening around it.',
+    title: 'People',
+    band: 'Who lives here',
+    desc: 'Population density, growth, age profile and the buyer or tenant mix — whether the human demand is real and durable.',
   },
   {
     index: '02',
-    title: 'Connectivity & Environment',
-    desc: 'Access, surroundings and the physical context that shapes desirability.',
+    title: 'Economy',
+    band: 'Does the money work',
+    desc: 'Price per sqm against benchmark, price momentum, achievable yield and holding costs — whether the math actually holds.',
   },
   {
     index: '03',
-    title: 'Market Dynamics',
-    desc: 'Supply, demand and pricing pressure — where the market is really moving.',
+    title: 'Movement',
+    band: 'How demand flows',
+    desc: 'Accessibility, human flow, absorption and rental pace — how quickly people and demand move through the area.',
   },
   {
     index: '04',
-    title: 'Risk & Opportunity',
-    desc: 'What could go wrong, what could go right, and how much it matters.',
+    title: 'Infrastructure',
+    band: 'Is it sound',
+    desc: 'Utilities, development quality, developer track record and environmental exposure — whether the built environment holds up.',
   },
   {
     index: '05',
-    title: 'Strategic Positioning',
-    desc: 'How the property is positioned to win in its specific market.',
+    title: 'Connectivity',
+    band: 'Linked to the city',
+    desc: 'Transit reach, proximity to major hubs and demand anchors — how well the property is tied into the wider city.',
   },
 ]
 
@@ -61,7 +66,9 @@ export function Lenses() {
           </h2>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
             Every signal is interpreted through five professional lenses — the way
-            an expert would look at it, made systematic.
+            an expert would look at it, made systematic. Each lens returns a
+            0–100 score and a plain-language band (Favorable, Strong, Very Strong)
+            — directional estimates, not an appraisal.
           </p>
         </Reveal>
       </div>
@@ -86,6 +93,9 @@ export function Lenses() {
               </span>
             </div>
             <div className="relative">
+              <p className="mb-2 font-rede text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                {lens.band}
+              </p>
               <h3 className="font-rede text-2xl font-semibold leading-tight text-foreground md:text-3xl">
                 {lens.title}
               </h3>
