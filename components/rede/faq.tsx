@@ -75,7 +75,7 @@ const REPORTING_FUTURE = [
   },
   {
     q: 'How can someone join?',
-    a: 'Request an invitation to the Stress Test Program. Access is limited and reviewed, so early requests are encouraged.',
+    a: 'The Stress Test Program is invitation only. Participants are selected and sent a private access link directly — there is no public sign-up.',
   },
 ]
 

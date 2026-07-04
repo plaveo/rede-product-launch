@@ -11,7 +11,6 @@ import { ProfessionalReports } from '@/components/rede/professional-reports'
 import { Capabilities } from '@/components/rede/capabilities'
 import { StressTest } from '@/components/rede/stress-test'
 import { Participants } from '@/components/rede/participants'
-import { JoinRede } from '@/components/rede/join-rede'
 import { InteractiveDashboard } from '@/components/rede/interactive-dashboard'
 import { PropertySearch } from '@/components/rede/property-search'
 import { PropertyMap } from '@/components/rede/property-map'
@@ -41,7 +40,6 @@ export default function Page() {
       {/* Ch23–24 — the program */}
       <StressTest />
       <Participants />
-      <JoinRede />
       {/* Ch25–29 — the product surfaces */}
       <InteractiveDashboard />
       <PropertySearch />
