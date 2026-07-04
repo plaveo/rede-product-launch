@@ -19,6 +19,17 @@ export function Reveal({
   useEffect(() => {
     const node = ref.current
     if (!node) return
+
+    // Fallback: if IntersectionObserver isn't available or reduced motion is
+    // preferred, show the content immediately so it can never stay hidden.
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (typeof IntersectionObserver === 'undefined' || prefersReducedMotion) {
+      setVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -31,7 +42,15 @@ export function Reveal({
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
     )
     observer.observe(node)
-    return () => observer.disconnect()
+
+    // Safety net: guarantee visibility shortly after mount in case the observer
+    // never fires (some mobile browsers, background tabs, screenshot tools).
+    const fallback = window.setTimeout(() => setVisible(true), 1500)
+
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(fallback)
+    }
   }, [])
 
   const Component = Tag as any
