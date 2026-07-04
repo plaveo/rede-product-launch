@@ -3,6 +3,7 @@ import { Hero } from '@/components/rede/hero'
 import { WhatIsRede } from '@/components/rede/what-is-rede'
 import { BuiltFor } from '@/components/rede/built-for'
 import { HowItWorks } from '@/components/rede/how-it-works'
+import { WorkflowGuide } from '@/components/rede/workflow-guide'
 import { Signals } from '@/components/rede/signals'
 import { Lenses } from '@/components/rede/lenses'
 import { ProfessionalDecision } from '@/components/rede/professional-decision'
@@ -31,6 +32,7 @@ export default function Page() {
       <WhatIsRede />
       <BuiltFor />
       <HowItWorks />
+      <WorkflowGuide />
       {/* Ch18–22 — the intelligence */}
       <Signals />
       <Lenses />
