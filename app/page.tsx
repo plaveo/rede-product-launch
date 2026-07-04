@@ -20,6 +20,7 @@ import { ReportsLibrary } from '@/components/rede/reports-library'
 import { WhyJoin } from '@/components/rede/why-join'
 import { WhyRede } from '@/components/rede/why-rede'
 import { Pepworld } from '@/components/rede/pepworld'
+import { ProgramStatus } from '@/components/rede/program-status'
 import { FinalCta } from '@/components/rede/final-cta'
 import { Footer } from '@/components/rede/footer'
 
@@ -52,6 +53,7 @@ export default function Page() {
       <WhyJoin />
       <WhyRede />
       <Pepworld />
+      <ProgramStatus />
       <FinalCta />
       <Footer />
     </main>

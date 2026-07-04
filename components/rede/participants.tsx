@@ -5,7 +5,8 @@ const FLOW = [
   ['Explore the Platform', 'See REDE the way professionals will.'],
   ['Test Workflows', 'Run real decisions through the engine.'],
   ['Submit Feedback', 'Tell us what works and what does not.'],
-  ['Help Improve REDE', 'Shape the platform before launch.'],
+  ['Report Bugs', 'Flag anything that breaks or feels off.'],
+  ['Improve the Product', 'Shape the platform before launch.'],
 ]
 
 export function Participants() {
