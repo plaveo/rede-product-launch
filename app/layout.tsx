@@ -1,11 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Playfair_Display, Inter, Space_Grotesk } from 'next/font/google'
+import { Geist, Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const playfair = Playfair_Display({
+const geist = Geist({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-geist',
   display: 'swap',
 })
 
