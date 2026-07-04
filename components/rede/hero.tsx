@@ -26,10 +26,11 @@ export function Hero() {
         <Reveal delay={80}>
           <div className="mt-7 flex items-center justify-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_2219-mJt2RjfvNDodJ2D7DCqVtlBLdSwFwR.jpeg"
+              src="/rede-icon.png"
               alt="REDE logo"
-              width={120}
-              height={120}
+              width={288}
+              height={288}
+              priority
               className="h-24 w-24 md:h-36 md:w-36"
             />
           </div>
