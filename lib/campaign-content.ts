@@ -141,9 +141,9 @@ export const IDEAS: Idea[] = [
   },
   {
     template: 'data',
-    stat: '6',
-    statLabel: 'STEP DECISION FRAMEWORK',
-    statNote: 'Setting · Framing · Revenue · Capacity · Comparison · Assessment.',
+    stat: '30',
+    statLabel: 'SIGNALS PER PROPERTY',
+    statNote: 'People · Economy · Movement · Infrastructure · Connectivity — read into 1 clear decision.',
     eyebrow: 'THE REDE SYSTEM',
   },
   {
@@ -177,4 +177,102 @@ export const CAPTIONS: string[] = [
   'Built for smart property investors. Turn data into better decisions in real estate. #REDE #PEPWORLD',
   '5 Lenses of View → 1 Clear Decision. That’s the REDE way. #PropertyDecisions #REDE',
   'We don’t replace the agent. We give the agent evidence. Get your Property Decision Report today. #REDE #PEPWORLD',
+]
+
+// ── CAMPAIGN RUN ──────────────────────────────────────────────────────────
+// The awareness angle for the first run, aimed at brokers & sales teams:
+// "Doubt → Proof." Many didn't believe at first. Now they've seen it.
+
+export interface CampaignPost {
+  id: string
+  image: string // path in /public/marketing
+  title: string // internal label for the studio
+  angle: 'proof' | 'insight' | 'philosophy' | 'invite'
+  caption: string // ready-to-paste social copy
+}
+
+// Ordered posting sequence for the run. The proof/story posts open the run,
+// the insight + philosophy posts sustain the "ingay," the invite closes soft.
+export const CAMPAIGN_POSTS: CampaignPost[] = [
+  {
+    id: 'confidence',
+    image: '/marketing/rede-fb-01-confidence.png',
+    title: 'Confidence',
+    angle: 'proof',
+    caption:
+      'Noong una, marami ang hindi naniwala. Ngayon, nakita na nila.\n\nREDE turns scattered property data into one clear, defensible view — so you present with confidence, not guesswork.\n\n#REDE #PEPWORLD #RealEstate #PropertyDecisions',
+  },
+  {
+    id: 'problem',
+    image: '/marketing/rede-fb-02-problem.png',
+    title: 'The Problem',
+    angle: 'insight',
+    caption:
+      'The problem was never selling. It was information.\n\nProperty facts are scattered across portals, maps, and reports. REDE brings them into one place — 30 signals, 5 lenses, 1 decision.\n\n#RealEstateDecisionEngine #REDE',
+  },
+  {
+    id: 'philosophy',
+    image: '/marketing/rede-fb-03-philosophy.png',
+    title: 'Philosophy',
+    angle: 'philosophy',
+    caption:
+      'We don’t replace the agent. We give the agent evidence.\n\nThe decision always belongs to your client. Our job is to explain the property so well that the choice becomes obvious.\n\n#REDE #PEPWORLD',
+  },
+  {
+    id: 'founder',
+    image: '/marketing/rede-fb-04-founder.png',
+    title: 'Founder',
+    angle: 'proof',
+    caption:
+      'Built from the ground — real market work, not theory.\n\nREDE is the analytic assessment engine: Computation (the numbers) + Assessment (the meaning), across 5 lenses, into 1 decision.\n\n#REDE #PEPWORLD #RealEstate',
+  },
+  {
+    id: 'promise',
+    image: '/marketing/rede-fb-05-promise.png',
+    title: 'The Promise',
+    angle: 'invite',
+    caption:
+      'Turn data into better decisions in real estate.\n\nREDE is professional property decision intelligence by PEPWORLD. Message us to see a live property read.\n\n#REDE #PEPWORLD #PropertyDecisions',
+  },
+  {
+    id: 'value-drivers',
+    image: '/marketing/info-01-value-drivers.png',
+    title: 'Value Drivers',
+    angle: 'insight',
+    caption:
+      'What really moves a property’s value? People, Economy, Movement, Infrastructure, Connectivity.\n\nREDE scores all five — so nothing important gets missed.\n\n#REDE #RealEstate #PropertyValue',
+  },
+  {
+    id: 'organize',
+    image: '/marketing/info-02-organize.png',
+    title: 'Organize',
+    angle: 'insight',
+    caption:
+      'Scattered data can’t build confidence. Organized data can.\n\nREDE gathers every fact about a property into one clear read you can defend in front of any client.\n\n#REDE #PEPWORLD',
+  },
+  {
+    id: 'clarity',
+    image: '/marketing/info-03-clarity.png',
+    title: 'Clarity',
+    angle: 'philosophy',
+    caption:
+      'Clarity is the product. The numbers are just the start.\n\nREDE wraps raw data in plain-language assessment — so the meaning is obvious, not buried.\n\n#REDE #RealEstateDecisionEngine',
+  },
+  {
+    id: 'zonal',
+    image: '/marketing/info-04-zonal.png',
+    title: 'Zonal Value',
+    angle: 'insight',
+    caption:
+      'BIR zonal value is one anchor — not the whole story.\n\nREDE reads price against real market signals, so you know what a property is actually worth to your client.\n\n#REDE #PropertyValue #RealEstate',
+  },
+]
+
+// Short caption bank for the run — quick paste when you just need copy.
+export const CAMPAIGN_CAPTIONS: string[] = [
+  'Noong una, hindi sila naniwala. Ngayon, nakita na nila. #REDE #PEPWORLD',
+  'The problem was never selling. It was information. #RealEstateDecisionEngine',
+  'We don’t replace the agent. We give the agent evidence. #REDE',
+  '30 signals. 5 lenses. 1 clear decision. That’s REDE. #PropertyDecisions',
+  'Turn data into better decisions in real estate. #REDE #PEPWORLD',
 ]
