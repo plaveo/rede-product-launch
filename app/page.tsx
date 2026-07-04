@@ -11,11 +11,6 @@ import { ProfessionalReports } from '@/components/rede/professional-reports'
 import { Capabilities } from '@/components/rede/capabilities'
 import { StressTest } from '@/components/rede/stress-test'
 import { Participants } from '@/components/rede/participants'
-import { ProgramPurpose } from '@/components/rede/program-purpose'
-import { ProgramObjectives } from '@/components/rede/program-objectives'
-import { ParticipantProfile } from '@/components/rede/participant-profile'
-import { ProgramFlow } from '@/components/rede/program-flow'
-import { ParticipantResponsibilities } from '@/components/rede/participant-responsibilities'
 import { JoinRede } from '@/components/rede/join-rede'
 import { InteractiveDashboard } from '@/components/rede/interactive-dashboard'
 import { PropertySearch } from '@/components/rede/property-search'
@@ -25,8 +20,6 @@ import { ReportsLibrary } from '@/components/rede/reports-library'
 import { WhyJoin } from '@/components/rede/why-join'
 import { WhyRede } from '@/components/rede/why-rede'
 import { Pepworld } from '@/components/rede/pepworld'
-import { Faq } from '@/components/rede/faq'
-import { ProgramStatus } from '@/components/rede/program-status'
 import { FinalCta } from '@/components/rede/final-cta'
 import { Footer } from '@/components/rede/footer'
 
@@ -48,12 +41,6 @@ export default function Page() {
       {/* Ch23–24 — the program */}
       <StressTest />
       <Participants />
-      {/* Ch28–32 — program deep dive */}
-      <ProgramPurpose />
-      <ProgramObjectives />
-      <ParticipantProfile />
-      <ProgramFlow />
-      <ParticipantResponsibilities />
       <JoinRede />
       {/* Ch25–29 — the product surfaces */}
       <InteractiveDashboard />
@@ -65,9 +52,6 @@ export default function Page() {
       <WhyJoin />
       <WhyRede />
       <Pepworld />
-      {/* Ch33–37 — frequently asked questions */}
-      <Faq />
-      <ProgramStatus />
       <FinalCta />
       <Footer />
     </main>
