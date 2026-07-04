@@ -276,3 +276,125 @@ export const CAMPAIGN_CAPTIONS: string[] = [
   '30 signals. 5 lenses. 1 clear decision. That’s REDE. #PropertyDecisions',
   'Turn data into better decisions in real estate. #REDE #PEPWORLD',
 ]
+
+// ── FIELD WORK ────────────────────────────────────────────────────────────
+// Two modes for on-ground work: (1) mall agent booths = test + proof (run
+// REDE live, watch the reaction), (2) realty offices = marketing ("Marketing
+// ako ng REDE"). Awareness only — no hard selling yet.
+
+export const REDE_LINK = 'https://rede.ph'
+
+// One clear line for what REDE is, in the founder's external framing.
+export const FIELD_PITCH =
+  'REDE is an analytic assessment engine for property decisions. Every property runs through 30 signals and 5 lenses — People, Economy, Movement, Infrastructure, Connectivity — into one clear, defensible decision report.'
+
+export interface FieldScript {
+  id: string
+  mode: 'booth' | 'office'
+  modeLabel: string
+  place: string
+  goal: string
+  steps: { label: string; line: string }[]
+  objections: { q: string; a: string }[]
+}
+
+export const FIELD_SCRIPTS: FieldScript[] = [
+  {
+    id: 'booth',
+    mode: 'booth',
+    modeLabel: 'Mode 1 · Test + Proof',
+    place: 'Mall agent booths',
+    goal: 'Hindi ka nagbebenta. Nag-o-obserba ka. Run REDE live on a property they’re selling, then watch how they react to the assessment and decision briefing.',
+    steps: [
+      {
+        label: 'Opener',
+        line: 'Hi! Naka-booth kayo — ano pong project ang hino-handle niyo? Pwede ko pong i-analyze live sa isang tool namin, para makita niyo.',
+      },
+      {
+        label: 'Run it',
+        line: 'Ito po ang REDE. Ilalagay ko lang ang property niyo… tapos tatakbo ang 30 signals, mababasa sa 5 lenses. (Ipakita ang analyze screen.)',
+      },
+      {
+        label: 'Show the read',
+        line: 'Ito ang score — pero hindi lang numero. May assessment: bakit FAVORABLE, bakit STRONG. Tapos may Decision Briefing na kayang basahin sa kliyente.',
+      },
+      {
+        label: 'Listen',
+        line: 'Ano po sa tingin niyo? May makikita ba kayo dito na hindi niyo pa nakikita sa ibang listing? (Tahimik ka. Hayaan silang magsalita — yun ang feedback.)',
+      },
+      {
+        label: 'Close soft',
+        line: 'Salamat po! Ito ang link kung gusto niyong subukan mag-isa: rede.ph. Marketing po ako ng REDE — baka magkita ulit tayo.',
+      },
+    ],
+    objections: [
+      {
+        q: '“Saan galing ang data?”',
+        a: 'Directional estimates po ito — modeled from a master index at ang REDE engine. Hindi appraisal; tulong sa pag-explain, hindi pamalit sa inyo.',
+      },
+      {
+        q: '“Papalitan ba nito ang agent?”',
+        a: 'Hindi po. Binibigyan lang kayo ng ebidensya para mas kumpiyansa kayong mag-present. Kayo pa rin ang nagbebenta.',
+      },
+    ],
+  },
+  {
+    id: 'office',
+    mode: 'office',
+    modeLabel: 'Mode 2 · Marketing',
+    place: 'Realty offices',
+    goal: 'Professional intro. Nag-aalok ka ng tool na magpapalakas sa presentation nila sa kliyente. Iwan silang may nakitang gumaganang read at leave-behind.',
+    steps: [
+      {
+        label: 'Intro',
+        line: 'Magandang araw! Marketing po ako ng REDE — isang analytic assessment engine para sa property decisions. Pwede po bang mag-two minutes?',
+      },
+      {
+        label: 'The problem',
+        line: 'Ang totoong hirap kasi hindi ang benta — ang information. Kalat ang data sa portals, maps, reports. REDE po ang nag-iisa nito sa isang malinaw na read.',
+      },
+      {
+        label: 'Show proof',
+        line: 'Ito po ang sample sa isang property. Tignan niyo — 5 lenses, may score at may assessment, tapos may Decision Briefing na may sources. (Ipakita sa phone.)',
+      },
+      {
+        label: 'The offer',
+        line: 'Ang gamit nito sa team niyo: mas mabilis at mas kumpiyansang presentation sa kliyente. Iiwan ko po itong one-pager at ang link — rede.ph.',
+      },
+      {
+        label: 'Leave-behind',
+        line: 'Kung gusto niyong subukan sa aktwal na listing niyo, i-scan niyo lang ang QR. Salamat po sa oras!',
+      },
+    ],
+    objections: [
+      {
+        q: '“Magkano ito?”',
+        a: 'Ipinapakilala pa lang po namin ngayon. Ang mahalaga muna, makita niyo kung tumutulong ito sa presentation niyo. Pag-usapan natin ang detalye kapag nakita niyo na ang value.',
+      },
+      {
+        q: '“Bakit ko ito kailangan?”',
+        a: 'Kasi ang kliyente ngayon nagta-tanong ng “bakit.” Ang REDE, binibigyan kayo ng sagot na naka-datos — kumpiyansa na kayang tumayo sa kahit anong tanong.',
+      },
+    ],
+  },
+]
+
+// Simple bullets for the printable leave-behind card.
+export const LEAVE_BEHIND_POINTS: string[] = [
+  'One property → 30 signals → 5 lenses → 1 clear decision.',
+  'Every score has two layers: the numbers (Computation) and the meaning (Assessment).',
+  'A Decision Briefing you can read straight to your client — with sources named inline.',
+  'REDE doesn’t replace the agent. It gives the agent evidence.',
+  'Directional estimates, not an appraisal — built to help you explain, not to decide for the buyer.',
+]
+
+// Fields the founder tracks per stop during a field run.
+export const FIELD_TRACKER_FIELDS: string[] = [
+  'Date',
+  'Location (mall / office)',
+  'Person / agency',
+  'Mode (booth / office)',
+  'Ran REDE live? (Y/N)',
+  'Reaction / quote',
+  'Follow-up?',
+]
