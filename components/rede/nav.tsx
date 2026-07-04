@@ -25,10 +25,11 @@ export function Nav() {
 
         <div className="hidden items-center gap-8 md:flex">
           {[
-            ['Overview', '#what'],
-            ['How it works', '#how'],
-            ['Lenses', '#lenses'],
-            ['Program', '#program'],
+            ['Overview', '/#what'],
+            ['How it works', '/#how'],
+            ['Lenses', '/#lenses'],
+            ['Program', '/#program'],
+            ['The Book', '/book'],
           ].map(([label, href]) => (
             <a
               key={href}
@@ -41,7 +42,7 @@ export function Nav() {
         </div>
 
         <a
-          href="#join"
+          href="/#join"
           className="rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
         >
           Request access
