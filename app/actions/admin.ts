@@ -1,7 +1,7 @@
 'use server'
 
 import { db } from '@/lib/db'
-import { stressTestApplications } from '@/lib/db/schema'
+import { stressTestApplications, stressTestSurvey } from '@/lib/db/schema'
 import { desc, eq } from 'drizzle-orm'
 import { cookies } from 'next/headers'
 import { revalidatePath } from 'next/cache'
@@ -78,4 +78,9 @@ export async function updateApplicationStatus(id: number, status: string) {
     .set({ status })
     .where(eq(stressTestApplications.id, id))
   revalidatePath('/stress-test/admin')
+}
+
+export async function getSurveys() {
+  if (!(await isAdmin())) throw new Error('Unauthorized')
+  return db.select().from(stressTestSurvey).orderBy(desc(stressTestSurvey.createdAt))
 }
