@@ -22,9 +22,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'REDE™ Training Manual — From Data to Decisions',
+  title: 'REDE™ — Every Property Explained with Data',
   description:
-    'The official REDE client training manual by PEPWORLD. Learn step by step how to evaluate any property using 30 signals and 5 interpretation lenses to reach a clear, defensible decision.',
+    'REDE is professional property decision intelligence by PEPWORLD. Turn any property into a clear, defensible decision with 30 signals and 5 interpretation lenses.',
   generator: 'v0.app',
   icons: {
     icon: [
