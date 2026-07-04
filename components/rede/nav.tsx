@@ -22,7 +22,7 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
-        <a href="/" className="flex flex-1 items-center gap-2" aria-label="REDE home">
+        <a href="/" className="flex flex-1 items-center" aria-label="REDE home">
           <Image
             src="/rede-mark.png"
             alt="REDE logo"
@@ -31,9 +31,6 @@ export function Nav() {
             priority
             className="h-9 w-9"
           />
-          <span className="font-rede text-base font-semibold tracking-tight text-foreground">
-            REDE
-          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
