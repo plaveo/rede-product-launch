@@ -21,12 +21,7 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
-        <a href="#top" className="flex items-baseline gap-1.5">
-          <span className="font-rede text-lg font-semibold tracking-tight text-foreground">
-            REDE
-          </span>
-          <span className="font-rede text-[10px] font-medium text-primary">™</span>
-        </a>
+        <div className="flex-1" />
 
         <div className="hidden items-center gap-8 md:flex">
           {[
