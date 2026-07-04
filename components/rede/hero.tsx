@@ -31,7 +31,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={160}>
-          <h2 className="mx-auto mt-6 max-w-3xl text-balance font-serif text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-6xl">
+          <h2 className="mx-auto mt-6 max-w-3xl text-balance font-display text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-6xl">
             Every property, explained with data.
           </h2>
         </Reveal>

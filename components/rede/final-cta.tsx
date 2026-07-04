@@ -16,7 +16,7 @@ export function FinalCta() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-8 text-balance font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-7xl">
+          <h2 className="mt-8 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-7xl">
             Join the REDE Stress Test Program.
           </h2>
         </Reveal>

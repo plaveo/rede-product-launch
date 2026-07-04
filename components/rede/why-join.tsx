@@ -15,7 +15,7 @@ export function WhyJoin() {
           <p className="font-rede text-[13px] font-medium uppercase tracking-[0.25em] text-primary">
             Why Join?
           </p>
-          <h2 className="mt-6 text-balance font-serif text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
+          <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
             Get in early. Shape what&apos;s next.
           </h2>
         </Reveal>

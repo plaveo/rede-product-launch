@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      className={`${geist.variable} ${inter.variable} ${spaceGrotesk.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}

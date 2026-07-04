@@ -12,7 +12,7 @@ export function StressTest() {
           <p className="font-rede text-[13px] font-medium uppercase tracking-[0.25em] text-primary">
             Stress Test Program
           </p>
-          <h2 className="mt-6 text-balance font-serif text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
+          <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
             Early access, by invitation.
           </h2>
           <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">

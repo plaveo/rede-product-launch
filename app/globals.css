@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-display: var(--font-geist), -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
   --font-rede: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
@@ -73,6 +73,12 @@
 @layer utilities {
   .font-rede {
     font-family: var(--font-rede);
+  }
+  /* Mac-style display face (SF-Pro-like). Tighten tracking on large headlines. */
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    font-feature-settings: 'ss01', 'cv01';
   }
 }
 
