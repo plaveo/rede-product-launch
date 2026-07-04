@@ -11,7 +11,7 @@ export function Footer() {
         </div>
 
         <p className="text-center text-xs text-muted-foreground md:text-right">
-          Real Estate Decision Engine — Transforms Data into Decisions.
+          From Data to Decisions.
           <br className="hidden md:block" /> © {new Date().getFullYear()} PEPWORLD.
           All rights reserved.
         </p>
