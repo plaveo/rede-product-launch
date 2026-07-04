@@ -39,6 +39,7 @@ export function Nav() {
             ['How it works', '/#how'],
             ['Lenses', '/#lenses'],
             ['Program', '/#program'],
+            ['Docs', '/docs'],
             ['The Book', '/book'],
           ].map(([label, href]) => (
             <a
