@@ -26,7 +26,7 @@ export function Hero() {
         <Reveal delay={80}>
           <div className="mt-7 flex items-center justify-center">
             <Image
-              src="/rede-icon.png"
+              src="/rede-mark.png"
               alt="REDE logo"
               width={288}
               height={288}
