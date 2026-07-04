@@ -56,45 +56,45 @@ The professional moves in one direction only. No stage can be skipped. Each stag
 
 > Proposed signal architecture (founder to lock the exact 30):
 
-**Cluster A → feeds Location & Environment lens**
-1. Immediate neighborhood quality
-2. Accessibility & transport links
-3. Nearby demand drivers (offices, malls, schools, transit)
-4. Surrounding development activity / supply pipeline
-5. Environmental exposure (flood, noise, congestion)
-6. Future infrastructure affecting the area
+**Cluster A → feeds PEOPLE lens**
+1. Population density (persons/km²)
+2. Annual population growth
+3. Median age & dependency ratio
+4. Residents in catchment
+5. Buyer/tenant profile (professional/expat/OFW mix)
+6. Demand durability (dependency/single-industry risk)
 
-**Cluster B → feeds Property & Condition lens**
-7. Physical condition / turnover state
-8. Layout efficiency & usable space
-9. Floor level / position / view
-10. Building or development quality & amenities
-11. Developer track record & reliability
-12. Age and maintenance status
+**Cluster B → feeds ECONOMY lens**
+7. Asking price / ₱ per sqm vs. area benchmark
+8. Price momentum (RREPI / YoY movement)
+9. BIR zonal value anchor
+10. Achievable gross yield
+11. Transaction & holding costs (net of dues & RPT, CGT, fees)
+12. Vacancy level in the cluster
 
-**Cluster C → feeds Value & Financial lens**
-13. Asking price vs. comparable units
-14. Price per sqm vs. area benchmark
-15. BIR zonal value anchor
-16. Transaction & holding costs (CGT, fees, dues)
-17. Financing terms available
-18. Total cost of ownership over the holding period
+**Cluster C → feeds MOVEMENT lens**
+13. Accessibility & road/transport links
+14. Human flow through the area
+15. Absorption / how fast comparable units move
+16. Nearby demand drivers (offices, malls, schools)
+17. Congestion / ease of daily movement
+18. Rental demand pace
 
-**Cluster D → feeds Market & Demand lens**
-19. Absorption / how fast comparable units move
-20. Vacancy level in the cluster
-21. Rental demand & achievable yield
-22. Occupancy performance of comparable rentals
-23. Buyer/tenant profile for the property
-24. Dependency risks in local demand (single-industry reliance)
+**Cluster D → feeds INFRASTRUCTURE lens**
+19. Utilities & support systems
+20. Building/development quality & amenities
+21. Developer track record & reliability
+22. Surrounding development activity / area maturation
+23. Environmental exposure (flood, seismic, noise)
+24. Future infrastructure affecting the area
 
-**Cluster E → feeds Risk & Legal lens**
-25. Title & ownership status
-26. Documentary completeness
-27. Developer/turnover or delivery risk
-28. Association / dues / management stability
-29. Regulatory or zoning constraints
-30. Liquidity — how easily this can be exited later
+**Cluster E → feeds CONNECTIVITY lens**
+25. Nearest transit reach & distance
+26. Proximity to major hubs (e.g. BGC, NAIA)
+27. Connection to key demand anchors (malls, medical, business districts)
+28. Walkability to essentials (mall, school, hospital)
+29. Regional link quality
+30. Overall integration into the wider city grid
 
 **How Signals are completed:** Each Signal is confirmed with a value or a clear "not available." A Signal is never silently skipped. When data is missing, REDE marks it as an explicit gap rather than pretending — because an honest gap is more trustworthy than a fabricated fact.
 
@@ -114,12 +114,14 @@ The professional moves in one direction only. No stage can be skipped. Each stag
 
 **How the 30 Signals become 5 Lenses:** Each cluster of 6 signals resolves into one lens verdict. The professional literally watches observation become intelligence — 30 facts folding into 5 readings.
 
-**What each Lens represents:**
-1. **Location & Environment** — Is the location working for or against this property?
-2. **Property & Condition** — Is the property itself sound and well-built?
-3. **Value & Financial** — Is the price fair, and does the math hold?
-4. **Market & Demand** — Is there real, durable demand?
-5. **Risk & Legal** — What could go wrong, and how exposed is the buyer?
+**What each Lens represents (CONFIRMED — live on rede.ph):**
+1. **PEOPLE** — Who lives here and is the human demand real and durable? (density, growth, age/dependency, catchment, buyer/tenant profile)
+2. **ECONOMY** — Is the price fair and does the money math hold? (₱/sqm, RREPI/price momentum, gross yield, costs net of dues & RPT, vacancy)
+3. **MOVEMENT** — How well do people and demand flow through the area? (accessibility, transport links, human flow, absorption)
+4. **INFRASTRUCTURE** — Is the built environment and support system sound? (utilities, developments, amenities, area maturation, environmental/flood-seismic exposure)
+5. **CONNECTIVITY** — How well is this connected to the wider city and drivers? (proximity to hubs like BGC/NAIA, transit reach, nearby demand anchors)
+
+Each lens outputs a **0–100 score + an assessment band** (e.g. FAVORABLE, STRONG, VERY STRONG). Scores are directional estimates modeled from the master index + deterministic REDE engine — explicitly *not an appraisal*.
 
 **How the professional moves through each Lens:** One lens at a time, in order. Each lens shows: the 6 signals behind it, the interpretation REDE draws, and a confidence level for that reading. The professional can trace every interpretation back to the specific facts that produced it — no black box.
 
