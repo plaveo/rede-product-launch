@@ -1,5 +1,6 @@
-import Image from 'next/image'
 import { Reveal } from './reveal'
+import { Parallax } from './parallax'
+import { AccessPass } from './previews/access-pass'
 
 export function StressTest() {
   return (
@@ -20,10 +21,23 @@ export function StressTest() {
             the platform before it launches.
           </p>
 
-          <dl className="mt-10 space-y-px overflow-hidden rounded-2xl border border-border/60">
+          <div className="mt-8 flex flex-wrap gap-2">
+            {['Invitation Only', 'Early Access', 'Limited Participants'].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-[12px] font-medium text-primary"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <dl className="mt-8 space-y-px overflow-hidden rounded-2xl border border-border/60">
             {[
               ['Stage', 'Stress Test Program'],
               ['Access', 'Invitation Only'],
+              ['Purpose', 'Professional product validation'],
               ['Prepared by', 'PEPWORLD'],
             ].map(([label, value]) => (
               <div
@@ -42,15 +56,11 @@ export function StressTest() {
             aria-hidden
             className="pointer-events-none absolute inset-0 scale-90 rounded-full bg-primary/20 blur-[110px]"
           />
-          <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-background/50 shadow-2xl shadow-primary/10">
-            <Image
-              src="/rede-program.png"
-              alt="An invitation-only access token for the REDE Stress Test Program"
-              width={1200}
-              height={1200}
-              className="h-auto w-full"
-            />
-          </div>
+          <Parallax scaleFrom={0.92} lift={24} className="relative">
+            <div className="rede-float">
+              <AccessPass />
+            </div>
+          </Parallax>
         </Reveal>
       </div>
     </section>

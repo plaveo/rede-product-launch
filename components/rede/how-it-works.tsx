@@ -24,10 +24,10 @@ export function HowItWorks() {
           <div key={step.label} className="flex flex-col items-center">
             <Reveal
               delay={i * 90}
-              className="w-full max-w-2xl overflow-hidden rounded-3xl border border-border/60 bg-card/50 p-6 md:p-8"
+              className="rede-lift group w-full max-w-2xl overflow-hidden rounded-3xl border border-border/60 bg-card/50 p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 md:p-8"
             >
               <div className="flex items-center gap-6">
-                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 md:h-20 md:w-20">
+                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 transition-transform duration-500 group-hover:scale-105 md:h-20 md:w-20">
                   <span className="font-rede text-2xl font-semibold text-primary md:text-3xl">
                     {step.value}
                   </span>

@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import { Reveal } from './reveal'
+import { Parallax } from './parallax'
+import { DecisionDashboard } from './previews/decision-dashboard'
 
 export function Hero() {
   return (
@@ -64,22 +66,22 @@ export function Hero() {
         </Reveal>
       </div>
 
-      {/* cinematic product visual */}
+      {/* the software is the hero — live decision workspace */}
       <Reveal delay={360} className="relative z-10 mt-14 w-full max-w-5xl px-5 md:mt-20">
-        <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card/40 shadow-2xl shadow-primary/10">
-          <Image
-            src="/rede-hero.png"
-            alt="REDE product visualization: a property dissolving into thousands of data signals converging into a single decision"
-            width={1600}
-            height={1000}
-            priority
-            className="h-auto w-full"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"
-          />
-        </div>
+        <Parallax scaleFrom={0.96} lift={20}>
+          <div className="rede-glass rede-edge-light rede-shadow rede-grid-bg relative overflow-hidden rounded-[28px]">
+            <DecisionDashboard />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-t from-background/40 via-transparent to-transparent"
+            />
+          </div>
+        </Parallax>
+        {/* reflection */}
+        <div
+          aria-hidden
+          className="pointer-events-none mx-auto mt-2 h-24 w-[88%] rounded-b-[40px] bg-primary/10 opacity-60 blur-2xl"
+        />
       </Reveal>
     </section>
   )

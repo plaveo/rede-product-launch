@@ -1,5 +1,6 @@
-import Image from 'next/image'
 import { Reveal } from './reveal'
+import { Parallax } from './parallax'
+import { ResearchPreview } from './previews/research-preview'
 
 export function WhatIsRede() {
   return (
@@ -18,18 +19,16 @@ export function WhatIsRede() {
       </Reveal>
 
       <Reveal delay={120} className="mt-16 md:mt-20">
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border/60 bg-card/40 shadow-2xl shadow-primary/10">
+        <div className="relative mx-auto max-w-5xl">
           <div
             aria-hidden
             className="pointer-events-none absolute -inset-x-10 top-[-20%] h-64 bg-primary/15 blur-[120px]"
           />
-          <Image
-            src="/rede-interface.png"
-            alt="The REDE interface showing a property decision score, signal charts and interpretation metrics"
-            width={1600}
-            height={1000}
-            className="relative h-auto w-full"
-          />
+          <Parallax scaleFrom={0.95} lift={22}>
+            <div className="rede-glass rede-edge-light rede-shadow rede-grid-bg relative overflow-hidden rounded-[28px]">
+              <ResearchPreview />
+            </div>
+          </Parallax>
         </div>
       </Reveal>
 
