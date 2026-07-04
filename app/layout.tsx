@@ -1,11 +1,17 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Inter, Space_Grotesk } from 'next/font/google'
+import { Geist, Inter, Space_Grotesk, Montserrat } from 'next/font/google'
 import './globals.css'
 
 const geist = Geist({
   subsets: ['latin'],
   variable: '--font-geist',
+  display: 'swap',
+})
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
@@ -60,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      className={`${geist.variable} ${inter.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}
