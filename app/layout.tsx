@@ -32,6 +32,13 @@ export const metadata: Metadata = {
   description:
     'REDE is professional property decision intelligence by PEPWORLD. Turn any property into a clear, defensible decision with 30 signals and 5 interpretation lenses.',
   generator: 'v0.app',
+  applicationName: 'REDE',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'REDE',
+  },
   icons: {
     icon: [
       {
