@@ -46,8 +46,8 @@ export function PropertyMapCanvas({
       container: containerRef.current,
       style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
       center: METRO_CENTER,
-      zoom: 12.4,
-      pitch: 55,
+      zoom: 10.6,
+      pitch: 30,
       bearing: -18,
       attributionControl: false,
       antialias: true,
@@ -134,7 +134,7 @@ export function PropertyMapCanvas({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // reflect active state: highlight marker + fly to it
+  // reflect active state: highlight marker + cinematic aerial → descend
   useEffect(() => {
     const map = mapRef.current
     Object.entries(markersRef.current).forEach(([id, marker]) => {
@@ -142,15 +142,47 @@ export function PropertyMapCanvas({
       el.classList.toggle('is-active', id === activeId)
       el.style.zIndex = id === activeId ? '20' : '10'
     })
+
     const active = properties.find((p) => p.id === activeId)
-    if (map && active) {
+    if (!map || !active) return
+
+    const target: [number, number] = [active.lng, active.lat]
+
+    // Cinematic two-stage move:
+    //   Stage 1 — rise to a high, near top-down aerial directly over the target.
+    //   Stage 2 — descend and tilt down into the 3D building view.
+    const descend = () => {
+      // Stage 1: pull straight up to a high aerial (flatten pitch, zoom out).
       map.flyTo({
-        center: [active.lng, active.lat],
-        zoom: 14.2,
-        pitch: 58,
-        duration: 1400,
+        center: target,
+        zoom: 9.6,
+        pitch: 0,
+        bearing: 0,
+        duration: 1100,
+        curve: 1.5,
         essential: true,
       })
+      map.once('moveend', () => {
+        // brief hold at altitude, then descend into the property.
+        window.setTimeout(() => {
+          map.flyTo({
+            center: target,
+            zoom: 16,
+            pitch: 64,
+            bearing: -28,
+            duration: 3000,
+            curve: 1.9,
+            speed: 0.6,
+            essential: true,
+          })
+        }, 220)
+      })
+    }
+
+    if (map.isStyleLoaded()) {
+      descend()
+    } else {
+      map.once('load', descend)
     }
   }, [activeId, properties])
 
