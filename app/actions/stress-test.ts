@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/db"
 import { stressTestApplications } from "@/lib/db/schema"
+import { capRequired, capStr, isBot, isValidEmail, LIMITS, rateLimit } from "@/lib/security"
 
 export type StressTestState = {
   ok: boolean
@@ -19,14 +20,25 @@ export async function submitStressTestApplication(
   _prev: StressTestState,
   formData: FormData,
 ): Promise<StressTestState> {
-  const fullName = String(formData.get("fullName") ?? "").trim()
-  const role = String(formData.get("role") ?? "").trim()
-  const email = String(formData.get("email") ?? "").trim()
-  const contact = String(formData.get("contact") ?? "").trim()
-  const agency = String(formData.get("agency") ?? "").trim()
-  const licenseNumber = String(formData.get("licenseNumber") ?? "").trim()
-  const property = String(formData.get("property") ?? "").trim()
-  const notes = String(formData.get("notes") ?? "").trim()
+  // Bot guard — silently accept so bots don't learn they were caught.
+  if (isBot(formData)) {
+    return { ok: true, message: "Application received. Our team will review and reach out with your next steps." }
+  }
+
+  // Rate limit per IP.
+  const { ok: allowed } = await rateLimit("stress-test", { max: 5, windowMs: 60_000 })
+  if (!allowed) {
+    return { ok: false, message: "Too many attempts. Please wait a minute and try again." }
+  }
+
+  const fullName = capRequired(formData.get("fullName"))
+  const role = capRequired(formData.get("role"))
+  const email = capRequired(formData.get("email"))
+  const contact = capRequired(formData.get("contact"))
+  const agency = capStr(formData.get("agency"))
+  const licenseNumber = capStr(formData.get("licenseNumber"))
+  const property = capStr(formData.get("property"), LIMITS.medium)
+  const notes = capStr(formData.get("notes"), LIMITS.long)
 
   if (!fullName || !role || !email || !contact) {
     return { ok: false, message: "Please complete the required fields." }
@@ -34,7 +46,7 @@ export async function submitStressTestApplication(
   if (!ALLOWED_ROLES.includes(role)) {
     return { ok: false, message: "Please select a valid role." }
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!isValidEmail(email)) {
     return { ok: false, message: "Please enter a valid email address." }
   }
 
@@ -44,10 +56,10 @@ export async function submitStressTestApplication(
       role,
       email,
       contact,
-      agency: agency || null,
-      licenseNumber: licenseNumber || null,
-      property: property || null,
-      notes: notes || null,
+      agency,
+      licenseNumber,
+      property,
+      notes,
     })
     return {
       ok: true,
