@@ -31,6 +31,42 @@ export function CoreMoment() {
           </p>
         </Reveal>
 
+        {/* DATA → DECISION — the whole engine in three words */}
+        <Reveal delay={60} className="mt-12">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            <span className="font-display text-3xl font-semibold tracking-tight text-muted-foreground md:text-5xl">
+              DATA
+            </span>
+            <span
+              aria-hidden
+              className="inline-flex h-10 items-center text-primary md:h-14"
+            >
+              <svg
+                width="56"
+                height="20"
+                viewBox="0 0 56 20"
+                fill="none"
+                className="h-5 w-12 md:h-6 md:w-14"
+              >
+                <path
+                  d="M2 10h48m0 0-8-7m8 7-8 7"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+            <span className="font-display text-3xl font-semibold tracking-tight text-primary md:text-5xl">
+              DECISION
+            </span>
+          </div>
+          <p className="mt-4 max-w-xl text-pretty text-[15px] leading-relaxed text-muted-foreground">
+            Not more data. A system that turns what is already everywhere into one
+            decision you can defend.
+          </p>
+        </Reveal>
+
         {/* The one line that is the whole product */}
         <Reveal delay={80} className="mt-12">
           <div className="rounded-3xl border border-primary/30 bg-primary/[0.06] p-8 md:p-10">
