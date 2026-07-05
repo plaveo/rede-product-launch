@@ -50,10 +50,16 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={320}>
-          <div className="mt-9 flex items-center justify-center">
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/result"
+              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              See a sample decision
+            </a>
             <a
               href="#what"
-              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
+              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full border border-border/70 bg-card/40 px-8 text-[15px] font-medium text-foreground backdrop-blur transition-transform hover:scale-[1.03] active:scale-95"
             >
               See how it works
             </a>
