@@ -7,6 +7,7 @@ import { HowItWorks } from '@/components/rede/how-it-works'
 import { Signals } from '@/components/rede/signals'
 import { Lenses } from '@/components/rede/lenses'
 import { ProfessionalDecision } from '@/components/rede/professional-decision'
+import { PropertyMap } from '@/components/rede/property-map'
 import { ProductExperience } from '@/components/rede/product-experience'
 import { ProfessionalReports } from '@/components/rede/professional-reports'
 import { StressTest } from '@/components/rede/stress-test'
@@ -30,6 +31,7 @@ export default function Page() {
       <Signals />
       <Lenses />
       <ProfessionalDecision />
+      <PropertyMap />
       <ProductExperience />
       <ProfessionalReports />
       {/* The program */}

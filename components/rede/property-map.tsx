@@ -1,25 +1,32 @@
 'use client'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { Reveal } from './reveal'
+import type { MapProperty } from './property-map-canvas'
 
-type Pin = {
-  id: string
-  name: string
-  district: string
-  score: number
-  grade: string
-  verdict: string
-  x: number
-  y: number
-}
+const PropertyMapCanvas = dynamic(
+  () => import('./property-map-canvas').then((m) => m.PropertyMapCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-[340px] w-full items-center justify-center bg-background/50 md:h-[460px]">
+        <span className="flex items-center gap-2 text-[13px] text-muted-foreground">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary rede-pulse" />
+          Loading map…
+        </span>
+      </div>
+    ),
+  },
+)
 
-const PINS: Pin[] = [
-  { id: 'p1', name: 'Two Serendra', district: 'BGC, Taguig', score: 87, grade: 'A+', verdict: 'Strong Buy', x: 28, y: 34 },
-  { id: 'p2', name: 'Park Terraces', district: 'Ayala Center, Makati', score: 88, grade: 'A+', verdict: 'Strong Buy', x: 62, y: 26 },
-  { id: 'p3', name: 'The Proscenium', district: 'Rockwell, Makati', score: 91, grade: 'A+', verdict: 'Strong Buy', x: 46, y: 58 },
-  { id: 'p4', name: 'Grand Hyatt Residences', district: 'BGC, Taguig', score: 84, grade: 'A', verdict: 'Buy', x: 74, y: 62 },
-  { id: 'p5', name: 'The Rise', district: 'Makati CBD', score: 66, grade: 'B', verdict: 'Caution', x: 36, y: 74 },
+// Real Metro Manila coordinates (approx) for each scored property.
+const PROPERTIES: MapProperty[] = [
+  { id: 'p1', name: 'Two Serendra', district: 'BGC, Taguig', score: 87, grade: 'A+', verdict: 'Strong Buy', lng: 121.0509, lat: 14.5486 },
+  { id: 'p2', name: 'Park Terraces', district: 'Ayala Center, Makati', score: 88, grade: 'A+', verdict: 'Strong Buy', lng: 121.0242, lat: 14.5533 },
+  { id: 'p3', name: 'The Proscenium', district: 'Rockwell, Makati', score: 91, grade: 'A+', verdict: 'Strong Buy', lng: 121.0355, lat: 14.5636 },
+  { id: 'p4', name: 'Grand Hyatt Residences', district: 'BGC, Taguig', score: 84, grade: 'A', verdict: 'Buy', lng: 121.0475, lat: 14.5525 },
+  { id: 'p5', name: 'The Rise', district: 'Makati CBD', score: 66, grade: 'B', verdict: 'Caution', lng: 121.018, lat: 14.558 },
 ]
 
 function toneFor(score: number) {
@@ -30,7 +37,7 @@ function toneFor(score: number) {
 
 export function PropertyMap() {
   const [activeId, setActiveId] = useState('p3')
-  const active = PINS.find((p) => p.id === activeId)!
+  const active = PROPERTIES.find((p) => p.id === activeId)!
 
   return (
     <section
@@ -43,11 +50,11 @@ export function PropertyMap() {
             Interactive Property Map
           </p>
           <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
-            See the market spatially.
+            See the market in 3D.
           </h2>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Every property, scored and placed. Tap any point to read the decision
-            without leaving the map.
+            Every property, scored and placed on a live map of Metro Manila. Tap
+            any point to read the decision without leaving the view.
           </p>
         </Reveal>
 
@@ -61,78 +68,18 @@ export function PropertyMap() {
               <span className="text-[11px] text-muted-foreground">Property Map</span>
               <span className="ml-auto flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary rede-pulse" />
-                <span className="text-[10px] font-medium text-primary">Metro Manila</span>
+                <span className="text-[10px] font-medium text-primary">Metro Manila · Live</span>
               </span>
             </div>
 
             <div className="grid md:grid-cols-5">
-              {/* map canvas */}
+              {/* 3D map canvas */}
               <div className="relative md:col-span-3">
-                <div className="relative h-[320px] overflow-hidden bg-background/50 md:h-[420px]">
-                  {/* abstract district blocks + roads (stylized, not geographic) */}
-                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
-                    <defs>
-                      <pattern id="mapgrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                        <path d="M8 0H0V8" fill="none" stroke="var(--border)" strokeWidth="0.3" opacity="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100" height="100" fill="url(#mapgrid)" />
-                    {/* stylized district blocks */}
-                    {[
-                      [10, 12, 26, 22], [42, 8, 30, 20], [16, 44, 24, 26],
-                      [54, 44, 34, 22], [22, 76, 30, 16], [64, 72, 24, 20],
-                    ].map(([x, y, w, h], i) => (
-                      <rect
-                        key={i}
-                        x={x}
-                        y={y}
-                        width={w}
-                        height={h}
-                        rx="2"
-                        fill="var(--card)"
-                        stroke="var(--border)"
-                        strokeWidth="0.4"
-                        opacity="0.7"
-                      />
-                    ))}
-                    {/* roads */}
-                    <path d="M0 40 H100 M40 0 V100" stroke="var(--primary)" strokeWidth="0.5" opacity="0.25" />
-                    <path d="M0 66 H100 M70 0 V100" stroke="var(--border)" strokeWidth="0.6" opacity="0.6" />
-                  </svg>
-
-                  {/* pins */}
-                  {PINS.map((p) => {
-                    const isActive = p.id === activeId
-                    const tone = toneFor(p.score)
-                    return (
-                      <button
-                        key={p.id}
-                        type="button"
-                        onClick={() => setActiveId(p.id)}
-                        aria-label={`${p.name}, decision score ${p.score}`}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-110"
-                        style={{ left: `${p.x}%`, top: `${p.y}%`, zIndex: isActive ? 20 : 10 }}
-                      >
-                        {isActive && (
-                          <span
-                            className="absolute inset-0 -m-1 animate-ping rounded-full"
-                            style={{ background: tone, opacity: 0.3 }}
-                          />
-                        )}
-                        <span
-                          className="relative flex h-9 w-9 items-center justify-center rounded-full border-2 font-rede text-[11px] font-semibold text-foreground shadow-lg"
-                          style={{
-                            borderColor: tone,
-                            background: isActive ? tone : 'var(--background)',
-                            color: isActive ? 'var(--background)' : 'var(--foreground)',
-                          }}
-                        >
-                          {p.grade}
-                        </span>
-                      </button>
-                    )
-                  })}
-                </div>
+                <PropertyMapCanvas
+                  properties={PROPERTIES}
+                  activeId={activeId}
+                  onSelect={setActiveId}
+                />
               </div>
 
               {/* live property panel */}
@@ -195,6 +142,13 @@ export function PropertyMap() {
                     </div>
                   ))}
                 </div>
+
+                <a
+                  href="/result"
+                  className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-primary px-6 text-[14px] font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-95"
+                >
+                  Open full decision
+                </a>
               </div>
             </div>
           </div>
