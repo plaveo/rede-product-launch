@@ -119,6 +119,17 @@ export function StressTestForm() {
             className="rede-glass rede-edge-light rede-shadow rounded-[28px] p-6 md:p-8"
           >
             <input type="hidden" name="role" value={role} />
+            {/* Honeypot — hidden from users, catches bots. Do not remove. */}
+            <div aria-hidden className="hidden">
+              <label htmlFor="st-company-website">Company website</label>
+              <input
+                id="st-company-website"
+                type="text"
+                name="company_website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             <div className="space-y-5">
               <div>
                 <label htmlFor="st-name" className="mb-2 block text-[13px] font-medium text-foreground">
