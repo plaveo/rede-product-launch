@@ -9,14 +9,8 @@ import { Lenses } from '@/components/rede/lenses'
 import { ProfessionalDecision } from '@/components/rede/professional-decision'
 import { ProductExperience } from '@/components/rede/product-experience'
 import { ProfessionalReports } from '@/components/rede/professional-reports'
-import { Capabilities } from '@/components/rede/capabilities'
 import { StressTest } from '@/components/rede/stress-test'
 import { Participants } from '@/components/rede/participants'
-import { InteractiveDashboard } from '@/components/rede/interactive-dashboard'
-import { PropertySearch } from '@/components/rede/property-search'
-import { PropertyMap } from '@/components/rede/property-map'
-import { Analytics } from '@/components/rede/analytics'
-import { ReportsLibrary } from '@/components/rede/reports-library'
 import { WhyJoin } from '@/components/rede/why-join'
 import { WhyRede } from '@/components/rede/why-rede'
 import { Pepworld } from '@/components/rede/pepworld'
@@ -32,23 +26,16 @@ export default function Page() {
       <BuiltFor />
       <CoreMoment />
       <HowItWorks />
-      {/* Ch18–22 — the intelligence */}
+      {/* The intelligence */}
       <Signals />
       <Lenses />
       <ProfessionalDecision />
       <ProductExperience />
       <ProfessionalReports />
-      <Capabilities />
-      {/* Ch23–24 — the program */}
+      {/* The program */}
       <StressTest />
       <Participants />
-      {/* Ch25–29 — the product surfaces */}
-      <InteractiveDashboard />
-      <PropertySearch />
-      <PropertyMap />
-      <Analytics />
-      <ReportsLibrary />
-      {/* Ch30–32 — the close */}
+      {/* The close */}
       <WhyJoin />
       <WhyRede />
       <Pepworld />
