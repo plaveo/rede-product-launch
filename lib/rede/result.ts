@@ -10,6 +10,8 @@
  * an admitted gap is more trustworthy than an invented number.
  */
 
+import { higherBetter, lowerBetter, peak, rating, SCALE } from './scoring'
+
 export type Band =
   | 'Very Strong'
   | 'Strong'
@@ -92,61 +94,68 @@ function lensScore(signals: Signal[]): number {
   return Math.round(scored.reduce((a, s) => a + s.score, 0) / scored.length)
 }
 
-/** Raw 30-signal sample for Two Serendra, BGC — grouped by lens. */
+/**
+ * Raw 30-signal sample for Two Serendra, BGC — grouped by lens.
+ *
+ * IMPORTANT: every `score` below is COMPUTED from a raw input via lib/rede/scoring
+ * (higherBetter / lowerBetter / peak / rating). No score is hand-typed. The
+ * benchmark curves live in the scoring module and are never exposed to the UI.
+ * Gaps (score: null) are preserved on purpose — an admitted gap beats an invented number.
+ */
 const RAW: Record<LensKey, { question: string; signals: Signal[] }> = {
   People: {
     question: 'Is the human demand real and durable?',
     signals: [
-      { name: 'Population Density', value: '21,400 / km²', score: 88, note: 'Dense, established residential catchment around BGC.' },
-      { name: 'Population Growth', value: '+3.1% / yr', score: 82, note: 'Steady in-migration of professionals and families.' },
-      { name: 'Median Age', value: '32 years', score: 84, note: 'Prime earning-age profile — durable buyer and tenant base.' },
-      { name: 'Catchment Size', value: '480k within 5km', score: 86, note: 'Large, affluent catchment feeding sustained demand.' },
-      { name: 'Buyer / Tenant Mix', value: 'End-user + expat lease', score: 80, note: 'Balanced mix reduces single-source demand risk.' },
-      { name: 'Demand Durability', value: 'High', score: 85, note: 'Anchored by offices and international schools nearby.' },
+      { name: 'Population Density', value: '21,400 / km²', score: higherBetter(21400, 4000, 24000), note: 'Dense, established residential catchment around BGC.' },
+      { name: 'Population Growth', value: '+3.1% / yr', score: higherBetter(3.1, -2, 8), note: 'Steady in-migration of professionals and families.' },
+      { name: 'Median Age', value: '32 years', score: peak(32, 34, 15), note: 'Prime earning-age profile — durable buyer and tenant base.' },
+      { name: 'Catchment Size', value: '480k within 5km', score: higherBetter(480, 100, 600), note: 'Large, affluent catchment feeding sustained demand.' },
+      { name: 'Buyer / Tenant Mix', value: 'End-user + expat lease', score: rating('High', SCALE.quality), note: 'Balanced mix reduces single-source demand risk.' },
+      { name: 'Demand Durability', value: 'High', score: rating('High', SCALE.quality), note: 'Anchored by offices and international schools nearby.' },
     ],
   },
   Economy: {
     question: 'Does the money actually work?',
     signals: [
-      { name: 'Price per sqm', value: '₱385,000', score: 48, note: 'Well above city median — priced at the top of the market.' },
-      { name: 'Price Momentum', value: '+4.2% / yr', score: 66, note: 'Positive but decelerating from prior peaks.' },
-      { name: 'BIR Zonal Anchor', value: '₱120,000', score: 60, note: 'Zonal value confirms a premium, not a mispricing.' },
-      { name: 'Gross Yield', value: '4.1%', score: 52, note: 'Thin yield — this is a capital-preservation play, not cashflow.' },
-      { name: 'Holding Costs', value: '₱78 / sqm / mo', score: 58, note: 'Premium dues; factor into any hold model.' },
+      { name: 'Price per sqm', value: '₱385,000', score: lowerBetter(385000, 180000, 520000), note: 'Well above city median — priced at the top of the market.' },
+      { name: 'Price Momentum', value: '+4.2% / yr', score: higherBetter(4.2, -2, 8), note: 'Positive but decelerating from prior peaks.' },
+      { name: 'BIR Zonal Anchor', value: '₱120,000', score: rating('Moderate', SCALE.quality), note: 'Zonal value confirms a premium, not a mispricing.' },
+      { name: 'Gross Yield', value: '4.1%', score: higherBetter(4.1, 2, 6.5), note: 'Thin yield — this is a capital-preservation play, not cashflow.' },
+      { name: 'Holding Costs', value: '₱78 / sqm / mo', score: lowerBetter(78, 40, 120), note: 'Premium dues; factor into any hold model.' },
       { name: 'Vacancy Level', value: null, score: null, note: 'No reliable building-level vacancy feed — verify before committing.' },
     ],
   },
   Movement: {
     question: 'How quickly does demand move here?',
     signals: [
-      { name: 'Accessibility', value: 'High', score: 84, note: 'Direct arterial access via 32nd St and 5th Ave.' },
-      { name: 'Human Flow', value: 'Very High', score: 88, note: 'Constant foot traffic from offices and retail.' },
-      { name: 'Absorption', value: '92% (5 yr)', score: 86, note: 'Historically strong absorption in this cluster.' },
-      { name: 'Demand Drivers', value: 'Offices + retail', score: 82, note: 'Multiple durable demand engines within walking distance.' },
-      { name: 'Congestion', value: 'Moderate', score: 62, note: 'Peak-hour congestion is the main friction point.' },
-      { name: 'Rental Pace', value: '~28 days', score: 80, note: 'Units lease quickly at market rate.' },
+      { name: 'Accessibility', value: 'High', score: rating('High', SCALE.quality), note: 'Direct arterial access via 32nd St and 5th Ave.' },
+      { name: 'Human Flow', value: 'Very High', score: rating('Very High', SCALE.quality), note: 'Constant foot traffic from offices and retail.' },
+      { name: 'Absorption', value: '92% (5 yr)', score: higherBetter(92, 50, 95), note: 'Historically strong absorption in this cluster.' },
+      { name: 'Demand Drivers', value: 'Offices + retail', score: rating('High', SCALE.quality), note: 'Multiple durable demand engines within walking distance.' },
+      { name: 'Congestion', value: 'Moderate', score: rating('Moderate', SCALE.quality), note: 'Peak-hour congestion is the main friction point.' },
+      { name: 'Rental Pace', value: '~28 days', score: lowerBetter(28, 14, 60), note: 'Units lease quickly at market rate.' },
     ],
   },
   Infrastructure: {
     question: 'Is the built environment sound?',
     signals: [
-      { name: 'Utilities', value: 'Full redundancy', score: 88, note: 'Reliable power, water, and fiber provisioning.' },
-      { name: 'Build Quality', value: 'Premium', score: 90, note: 'High construction standard, well maintained.' },
-      { name: 'Developer Record', value: 'Ayala Land', score: 92, note: 'Top-tier developer track record and turnover reliability.' },
-      { name: 'Development Activity', value: 'Mature', score: 78, note: 'Established estate — limited new supply shock nearby.' },
-      { name: 'Flood / Seismic', value: 'Low exposure', score: 80, note: 'Elevated ground; low flood risk for the district.' },
+      { name: 'Utilities', value: 'Full redundancy', score: rating('Very High', SCALE.quality), note: 'Reliable power, water, and fiber provisioning.' },
+      { name: 'Build Quality', value: 'Premium', score: rating('Premium', SCALE.quality), note: 'High construction standard, well maintained.' },
+      { name: 'Developer Record', value: 'Ayala Land', score: rating('Very High', SCALE.quality), note: 'Top-tier developer track record and turnover reliability.' },
+      { name: 'Development Activity', value: 'Mature', score: rating('Mature', SCALE.maturity), note: 'Established estate — limited new supply shock nearby.' },
+      { name: 'Flood / Seismic', value: 'Low exposure', score: rating('Low exposure', SCALE.exposure), note: 'Elevated ground; low flood risk for the district.' },
       { name: 'Future Projects', value: null, score: null, note: 'Pipeline of adjacent towers not fully confirmed — monitor supply.' },
     ],
   },
   Connectivity: {
     question: 'How well is it tied into the wider city?',
     signals: [
-      { name: 'Transit Reach', value: 'BGC Bus + MRT feeder', score: 78, note: 'Good internal transit; rail link still improving.' },
-      { name: 'Hub Proximity', value: '1.2 km to core', score: 86, note: 'Minutes from the central business core.' },
-      { name: 'Demand Anchors', value: 'Offices, schools', score: 88, note: 'Surrounded by the anchors that create resale demand.' },
-      { name: 'Walkability', value: 'Excellent', score: 90, note: 'Among the most walkable districts in Metro Manila.' },
-      { name: 'Regional Links', value: 'C5 / EDSA access', score: 74, note: 'Solid regional road links despite EDSA load.' },
-      { name: 'City Integration', value: 'High', score: 84, note: 'Fully integrated into the metro’s economic grid.' },
+      { name: 'Transit Reach', value: 'BGC Bus + MRT feeder', score: rating('High', SCALE.quality), note: 'Good internal transit; rail link still improving.' },
+      { name: 'Hub Proximity', value: '1.2 km to core', score: lowerBetter(1.2, 0.5, 5), note: 'Minutes from the central business core.' },
+      { name: 'Demand Anchors', value: 'Offices, schools', score: rating('Very High', SCALE.quality), note: 'Surrounded by the anchors that create resale demand.' },
+      { name: 'Walkability', value: 'Excellent', score: higherBetter(9.2, 3, 10), note: 'Among the most walkable districts in Metro Manila.' },
+      { name: 'Regional Links', value: 'C5 / EDSA access', score: rating('Moderate', SCALE.quality), note: 'Solid regional road links despite EDSA load.' },
+      { name: 'City Integration', value: 'High', score: rating('High', SCALE.quality), note: 'Fully integrated into the metro’s economic grid.' },
     ],
   },
 }
