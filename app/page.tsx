@@ -2,7 +2,7 @@ import { Nav } from '@/components/rede/nav'
 import { Hero } from '@/components/rede/hero'
 import { WhatIsRede } from '@/components/rede/what-is-rede'
 import { BuiltFor } from '@/components/rede/built-for'
-import { Segments } from '@/components/rede/segments'
+import { CoreMoment } from '@/components/rede/core-moment'
 import { HowItWorks } from '@/components/rede/how-it-works'
 import { Signals } from '@/components/rede/signals'
 import { Lenses } from '@/components/rede/lenses'
@@ -30,7 +30,7 @@ export default function Page() {
       <Hero />
       <WhatIsRede />
       <BuiltFor />
-      <Segments />
+      <CoreMoment />
       <HowItWorks />
       {/* Ch18–22 — the intelligence */}
       <Signals />
