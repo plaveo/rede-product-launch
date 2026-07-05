@@ -260,6 +260,17 @@ export function SurveyForm() {
 
       <Reveal delay={120}>
         <form action={formAction} className="mt-12 space-y-6">
+          {/* Honeypot — hidden from users, catches bots. Do not remove. */}
+          <div aria-hidden className="hidden">
+            <label htmlFor="sv-company-website">Company website</label>
+            <input
+              id="sv-company-website"
+              type="text"
+              name="company_website"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           {/* 01 Profile */}
           <SectionCard step="01" title="Profile">
             <div className="space-y-5">
