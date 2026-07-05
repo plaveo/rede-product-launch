@@ -26,8 +26,8 @@ const tiers: Tier[] = [
       'Up to 20 reports / month',
       'Coverage map access',
     ],
-    cta: 'Start with Starter',
-    href: '/#program',
+    cta: 'This feels right',
+    href: '/survey',
   },
   {
     name: 'Professional',
@@ -43,8 +43,8 @@ const tiers: Tier[] = [
       'Comparable & area analytics',
       'Client-ready presentation mode',
     ],
-    cta: 'Go Professional',
-    href: '/#program',
+    cta: 'This feels right',
+    href: '/survey',
     featured: true,
   },
   {
@@ -61,8 +61,8 @@ const tiers: Tier[] = [
       'Team activity overview',
       'Priority support',
     ],
-    cta: 'Talk to us',
-    href: '/#program',
+    cta: 'This feels right',
+    href: '/survey',
   },
 ]
 
@@ -98,20 +98,20 @@ export function Pricing() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Pricing
+              Indicative pricing · for feedback
             </span>
           </Reveal>
 
           <Reveal delay={80}>
             <h2 className="mt-8 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
-              Priced to prove value.
+              Would you pay for this?
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mx-auto mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
-              One decision engine, three ways to work. Start solo, go
-              professional, or bring the whole brokerage.
+              We&apos;re in stress-test. These are indicative prices — not final,
+              not for sale yet. Tell us what feels right, and help us set them.
             </p>
           </Reveal>
         </div>
@@ -149,6 +149,9 @@ export function Pricing() {
                     {tier.period}
                   </span>
                 </div>
+                <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground/70">
+                  Indicative · subject to change
+                </p>
 
                 <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
                   {tier.tagline}
@@ -183,8 +186,9 @@ export function Pricing() {
 
         <Reveal delay={120}>
           <p className="mt-12 text-center text-[13px] leading-relaxed text-muted-foreground">
-            All plans include the full REDE method — 30 signals, 5 lenses, 1
-            decision. Prices in PHP, billed monthly. Cancel anytime.
+            No payment yet. REDE is in stress-test — these prices are indicative
+            and help us find what&apos;s fair before launch. Every plan includes
+            the full method: 30 signals, 5 lenses, 1 decision.
           </p>
         </Reveal>
       </div>
