@@ -16,9 +16,10 @@ export type MapProperty = {
 }
 
 function toneFor(score: number) {
-  if (score >= 80) return 'oklch(0.7 0.14 150)'
-  if (score >= 55) return 'oklch(0.78 0.14 85)'
-  return 'oklch(0.6 0.16 25)'
+  // Muted, refined tones — not neon. Soft sage / amber / clay.
+  if (score >= 80) return 'oklch(0.68 0.07 155)'
+  if (score >= 55) return 'oklch(0.74 0.09 80)'
+  return 'oklch(0.63 0.1 30)'
 }
 
 const METRO_CENTER: [number, number] = [121.035, 14.554]
