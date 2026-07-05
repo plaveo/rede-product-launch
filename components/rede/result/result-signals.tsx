@@ -28,11 +28,12 @@ export function ResultSignals({
         The Evidence
       </p>
       <h2 className="mt-4 text-balance font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-        Thirty signals. Nothing hidden.
+        Thirty analytic assets. Nothing hidden.
       </h2>
       <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
-        Every lens score traces back to real readings. Where data is missing, REDE
-        says so — {gapCount} of {signalCount} signals are marked as honest gaps.
+        Each asset carries a computation and an interpretation. Every lens score
+        traces back to these readings — and where data is missing, REDE says so:{' '}
+        {gapCount} of {signalCount} are marked as honest gaps.
       </p>
 
       <div className="mt-10 flex flex-col gap-3">

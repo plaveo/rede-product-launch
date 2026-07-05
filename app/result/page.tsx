@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { buildResult } from '@/lib/rede/result'
 import { ResultVerdict } from '@/components/rede/result/result-verdict'
+import { ResultGuide } from '@/components/rede/result/result-guide'
 import { ResultLenses } from '@/components/rede/result/result-lenses'
 import { ResultSignals } from '@/components/rede/result/result-signals'
 import { ResultBriefing } from '@/components/rede/result/result-briefing'
@@ -17,6 +18,7 @@ export default function ResultPage() {
   return (
     <main className="min-h-screen bg-background">
       <ResultVerdict result={result} />
+      <ResultGuide />
       <ResultLenses
         lenses={result.lenses}
         highlightKey={result.highlight.key}

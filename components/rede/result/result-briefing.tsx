@@ -1,7 +1,7 @@
 import type { ReedResult } from '@/lib/rede/result'
 
 export function ResultBriefing({ result }: { result: ReedResult }) {
-  const { briefing, watchOuts, property } = result
+  const { briefing, watchOuts } = result
 
   return (
     <section className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
@@ -12,8 +12,8 @@ export function ResultBriefing({ result }: { result: ReedResult }) {
         What to say. What to watch.
       </h2>
       <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
-        The report in plain language — the position you can take into a client
-        meeting, and the risks you should raise before you do.
+        The short version — what to lead with, and what to raise before the client
+        asks.
       </p>
 
       <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -68,14 +68,10 @@ export function ResultBriefing({ result }: { result: ReedResult }) {
         </div>
       </div>
 
-      {/* closing line */}
-      <div className="mt-6 rounded-[24px] border border-primary/25 bg-primary/5 p-6 md:p-7">
-        <p className="text-pretty text-base leading-relaxed text-foreground md:text-lg">
-          <span className="font-semibold">{property.name}</span> is a position you
-          can defend — strong demand and location, priced at the top of the market,
-          with two gaps to verify. Present the evidence, and let the client decide.
-        </p>
-      </div>
+      {/* one-line close */}
+      <p className="mt-6 text-pretty text-sm leading-relaxed text-muted-foreground">
+        Present the evidence. <span className="text-foreground">The client decides.</span>
+      </p>
     </section>
   )
 }
