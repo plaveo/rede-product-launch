@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -22,15 +21,17 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
-        <a href="/" className="flex flex-1 items-center" aria-label="REDE home">
-          <Image
-            src="/rede-mark.png"
-            alt="REDE logo"
-            width={40}
-            height={40}
-            priority
-            className="h-9 w-9"
-          />
+        <a
+          href="/"
+          className="flex flex-1 items-center gap-3"
+          aria-label="REDE home"
+        >
+          <span className="font-display text-lg font-semibold tracking-tight text-foreground">
+            REDE
+          </span>
+          <span className="hidden text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:inline">
+            From Data to Decision
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

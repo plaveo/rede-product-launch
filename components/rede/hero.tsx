@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Reveal } from './reveal'
 import { Parallax } from './parallax'
 import { DecisionDashboard } from './previews/decision-dashboard'
@@ -17,22 +16,17 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl px-5 text-center">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium text-muted-foreground backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Property Decision Intelligence
+            From Data to Decision
           </span>
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="mt-7 flex items-center justify-center">
-            <Image
-              src="/rede-mark.png"
-              alt="REDE logo"
-              width={360}
-              height={360}
-              priority
-              className="h-32 w-32 md:h-48 md:w-48"
-            />
+          <div className="mt-8 flex items-center justify-center">
+            <span className="font-display text-6xl font-semibold tracking-tight text-foreground md:text-8xl">
+              REDE
+            </span>
           </div>
         </Reveal>
 
