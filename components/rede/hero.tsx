@@ -44,8 +44,8 @@ export function Hero() {
 
         <Reveal delay={240}>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Professional property decision intelligence. Turn any property into a
-            clear, defensible decision.
+            From data to decision. One click before every client meeting turns any
+            property into a clear, defensible position.
           </p>
         </Reveal>
 
