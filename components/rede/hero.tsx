@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Reveal } from './reveal'
 import { Parallax } from './parallax'
 import { DecisionDashboard } from './previews/decision-dashboard'
@@ -24,9 +25,14 @@ export function Hero() {
 
         <Reveal delay={80}>
           <div className="mt-8 flex items-center justify-center">
-            <span className="font-display text-6xl font-semibold tracking-tight text-foreground md:text-8xl">
-              REDE
-            </span>
+            <Image
+              src="/rede-logo.png"
+              alt="REDE"
+              width={200}
+              height={200}
+              priority
+              className="h-28 w-28 rounded-full md:h-40 md:w-40"
+            />
           </div>
         </Reveal>
 
