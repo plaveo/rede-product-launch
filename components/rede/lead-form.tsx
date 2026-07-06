@@ -3,7 +3,8 @@
 import { useActionState, useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
 import { Reveal } from './reveal'
-import { submitLead, LEAD_ROLES, type LeadState } from '@/app/actions/leads'
+import { submitLead, type LeadState } from '@/app/actions/leads'
+import { LEAD_ROLES } from '@/lib/leads'
 
 function SubmitButton() {
   const { pending } = useFormStatus()

@@ -11,17 +11,6 @@ export type LeadState = {
   message: string
 } | null
 
-const ROLES = [
-  "Broker",
-  "Salesperson",
-  "Appraiser",
-  "Investor",
-  "Property Seller",
-  "Property Buyer",
-  "Developer",
-  "Other",
-]
-
 export async function submitLead(_prev: LeadState, formData: FormData): Promise<LeadState> {
   const fullName = String(formData.get("fullName") ?? "").trim()
   const email = String(formData.get("email") ?? "").trim()
@@ -57,8 +46,6 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
     return { ok: false, message: "Something went wrong. Please try again." }
   }
 }
-
-export { ROLES as LEAD_ROLES }
 
 export async function getLeads() {
   if (!(await isAdmin())) throw new Error("Unauthorized")
