@@ -36,7 +36,7 @@ export function Nav() {
             className="h-9 w-9 rounded-full"
           />
           <span className="hidden text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:inline">
-            From Data to Decision
+            From Data to Decisions
           </span>
         </a>
 
