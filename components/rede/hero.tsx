@@ -19,7 +19,7 @@ export function Hero() {
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            From Data to Decisions
+            From Data to Decision
           </span>
         </Reveal>
 
@@ -38,13 +38,13 @@ export function Hero() {
 
         <Reveal delay={160}>
           <h2 className="mx-auto mt-6 max-w-3xl text-balance font-display text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-6xl">
-            Every property, explained with evidence.
+            Every property, explained with data.
           </h2>
         </Reveal>
 
         <Reveal delay={240}>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            From data to decisions. One click before every client meeting turns any
+            From data to decision. One click before every client meeting turns any
             property into a clear, defensible position.
           </p>
         </Reveal>

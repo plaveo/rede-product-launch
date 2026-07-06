@@ -53,14 +53,12 @@ export async function adminLogin(
     maxAge: 60 * 60 * 8, // 8 hours
   })
   revalidatePath('/stress-test/admin')
-  revalidatePath('/leads/admin')
   return {}
 }
 
 export async function adminLogout() {
   ;(await cookies()).delete(COOKIE_NAME)
   revalidatePath('/stress-test/admin')
-  revalidatePath('/leads/admin')
 }
 
 export async function getApplications() {

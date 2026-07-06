@@ -28,9 +28,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'REDE™ — Every Property Explained with Evidence',
+  title: 'REDE™ — Every Property Explained with Data',
   description:
-    'REDE is the Real Estate Decision Engine by PEPWORLD. Turn any property into a clear, defensible decision with 30 signals and 5 interpretation lenses — from data to decisions.',
+    'REDE is professional property decision intelligence by PEPWORLD. Turn any property into a clear, defensible decision with 30 signals and 5 interpretation lenses.',
   generator: 'v0.app',
   applicationName: 'REDE',
   manifest: '/manifest.webmanifest',
