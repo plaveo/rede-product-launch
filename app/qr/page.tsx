@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const BASE_URL = 'https://rede-product-launch.vercel.app'
 
+const FEATURED = {
+  key: 'launch',
+  title: 'See REDE',
+  caption: 'Open the web launch — the full REDE story and what it does.',
+  url: BASE_URL,
+  label: 'rede-product-launch.vercel.app',
+} as const
+
 const CODES = [
   {
     key: 'survey',
@@ -40,6 +48,7 @@ export default async function QrPage() {
   const rendered = await Promise.all(
     CODES.map(async (c) => ({ ...c, dataUrl: await makeQr(c.url) })),
   )
+  const featured = { ...FEATURED, dataUrl: await makeQr(FEATURED.url) }
 
   return (
     <main className="min-h-dvh bg-background px-5 py-12 print:bg-white print:py-6">
@@ -56,6 +65,31 @@ export default async function QrPage() {
             right in your browser.
           </p>
         </header>
+
+        <section className="mb-6 flex flex-col items-center rounded-2xl border border-primary/40 bg-card p-6 text-center print:break-inside-avoid print:border-neutral-300 print:bg-white">
+          <span className="mb-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground print:bg-black print:text-white">
+            Start here
+          </span>
+          <h2 className="font-display text-2xl font-bold text-foreground print:text-black">
+            {featured.title}
+          </h2>
+          <p className="mt-1 mb-5 max-w-sm text-sm leading-relaxed text-muted-foreground print:text-neutral-600">
+            {featured.caption}
+          </p>
+          <div className="rounded-xl bg-white p-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={featured.dataUrl || '/placeholder.svg'}
+              alt={`QR code linking to ${featured.label}`}
+              width={280}
+              height={280}
+              className="h-64 w-64"
+            />
+          </div>
+          <p className="mt-4 break-all text-xs text-muted-foreground print:text-neutral-500">
+            {featured.label}
+          </p>
+        </section>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {rendered.map((c) => (
