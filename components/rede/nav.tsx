@@ -13,6 +13,8 @@ import {
   Megaphone,
   MapPin,
   PlayCircle,
+  Users,
+  UserPlus,
 } from 'lucide-react'
 
 const MENU_LINKS: [string, string][] = [
@@ -26,6 +28,12 @@ const MENU_LINKS: [string, string][] = [
 ]
 
 const FOUNDER_LINKS: { label: string; href: string; desc: string; icon: typeof Menu }[] = [
+  {
+    label: 'Leads Dashboard',
+    href: '/leads/admin',
+    desc: 'Captured leads & pipeline',
+    icon: Users,
+  },
   {
     label: 'Stress Test Dashboard',
     href: '/stress-test/admin',
@@ -47,6 +55,7 @@ const FOUNDER_LINKS: { label: string; href: string; desc: string; icon: typeof M
 ]
 
 const TOOL_LINKS: { label: string; href: string; icon: typeof Menu }[] = [
+  { label: 'Join the List', href: '/leads', icon: UserPlus },
   { label: 'Guided Demo', href: '/demo', icon: PlayCircle },
   { label: 'QR Codes', href: '/qr', icon: QrCode },
   { label: 'FB Boost Kit', href: '/fb', icon: Megaphone },
