@@ -22,15 +22,22 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
-        <a href="/" className="flex flex-1 items-center" aria-label="REDE home">
+        <a
+          href="/"
+          className="flex flex-1 items-center gap-3"
+          aria-label="REDE home"
+        >
           <Image
-            src="/rede-mark.png"
-            alt="REDE logo"
-            width={40}
-            height={40}
+            src="/rede-logo.png"
+            alt="REDE"
+            width={36}
+            height={36}
             priority
-            className="h-9 w-9"
+            className="h-9 w-9 rounded-full"
           />
+          <span className="hidden text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:inline">
+            From Data to Decision
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -39,6 +46,7 @@ export function Nav() {
             ['How it works', '/#how'],
             ['Lenses', '/#lenses'],
             ['Program', '/#program'],
+            ['Pricing', '/pricing'],
             ['Docs', '/docs'],
             ['The Book', '/book'],
           ].map(([label, href]) => (

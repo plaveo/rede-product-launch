@@ -176,6 +176,15 @@ export function ProfessionalDecision() {
             </div>
           </div>
         </div>
+
+        <Reveal className="mt-10 flex justify-center">
+          <a
+            href="/result"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
+          >
+            Open the full decision — Two Serendra
+          </a>
+        </Reveal>
       </div>
     </section>
   )

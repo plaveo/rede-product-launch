@@ -17,21 +17,21 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl px-5 text-center">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium text-muted-foreground backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-1.5 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Property Decision Intelligence
+            From Data to Decision
           </span>
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="mt-7 flex items-center justify-center">
+          <div className="mt-8 flex items-center justify-center">
             <Image
-              src="/rede-mark.png"
-              alt="REDE logo"
-              width={360}
-              height={360}
+              src="/rede-logo.png"
+              alt="REDE"
+              width={200}
+              height={200}
               priority
-              className="h-32 w-32 md:h-48 md:w-48"
+              className="h-28 w-28 rounded-full md:h-40 md:w-40"
             />
           </div>
         </Reveal>
@@ -44,16 +44,22 @@ export function Hero() {
 
         <Reveal delay={240}>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Professional property decision intelligence. Turn any property into a
-            clear, defensible decision.
+            From data to decision. One click before every client meeting turns any
+            property into a clear, defensible position.
           </p>
         </Reveal>
 
         <Reveal delay={320}>
-          <div className="mt-9 flex items-center justify-center">
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/result"
+              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              See a sample decision
+            </a>
             <a
               href="#what"
-              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
+              className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full border border-border/70 bg-card/40 px-8 text-[15px] font-medium text-foreground backdrop-blur transition-transform hover:scale-[1.03] active:scale-95"
             >
               See how it works
             </a>
