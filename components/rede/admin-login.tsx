@@ -13,10 +13,10 @@ export function AdminLogin() {
           REDE Admin
         </p>
         <h1 className="mt-2 font-rede text-2xl font-semibold tracking-tight text-foreground">
-          Stress Test Applications
+          Command Center
         </h1>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          Enter the admin password to view and manage applications.
+          One password unlocks everything — leads, applicants, and survey, live in one monitor.
         </p>
 
         <form action={formAction} className="mt-6 flex flex-col gap-3">

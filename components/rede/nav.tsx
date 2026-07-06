@@ -15,6 +15,7 @@ import {
   PlayCircle,
   Users,
   UserPlus,
+  Gauge,
 } from 'lucide-react'
 
 const MENU_LINKS: [string, string][] = [
@@ -29,19 +30,28 @@ const MENU_LINKS: [string, string][] = [
 
 const FOUNDER_LINKS: { label: string; href: string; desc: string; icon: typeof Menu }[] = [
   {
-    label: 'Leads Dashboard',
+    label: 'Command Center',
+    href: '/hq',
+    desc: 'Everything in one monitor · live',
+    icon: Gauge,
+  },
+]
+
+const FOUNDER_MORE_LINKS: { label: string; href: string; desc: string; icon: typeof Menu }[] = [
+  {
+    label: 'Leads',
     href: '/leads/admin',
     desc: 'Captured leads & pipeline',
     icon: Users,
   },
   {
-    label: 'Stress Test Dashboard',
+    label: 'Applicants',
     href: '/stress-test/admin',
     desc: 'Applicants who registered',
     icon: LayoutDashboard,
   },
   {
-    label: 'Survey Database',
+    label: 'Survey',
     href: '/survey/admin',
     desc: 'Tester feedback & responses',
     icon: Database,
@@ -189,19 +199,33 @@ export function Nav() {
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 rounded-xl border border-border/50 bg-card/40 px-3 py-3 transition-colors hover:border-primary/50"
+                  className="flex items-center gap-3 rounded-2xl border border-primary/40 bg-primary/10 px-4 py-4 transition-colors hover:border-primary"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="h-[18px] w-[18px]" />
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                    <Icon className="h-5 w-5" />
                   </span>
                   <span className="flex flex-col">
-                    <span className="text-[14px] font-semibold text-foreground">
+                    <span className="text-[16px] font-semibold text-foreground">
                       {label}
                     </span>
                     <span className="text-[12px] text-muted-foreground">{desc}</span>
                   </span>
                 </Link>
               ))}
+
+              <div className="mt-1 grid grid-cols-2 gap-2">
+                {FOUNDER_MORE_LINKS.map(({ label, href, icon: Icon }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 rounded-xl border border-border/50 bg-card/40 px-3 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-primary/50"
+                  >
+                    <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Tools */}
