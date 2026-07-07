@@ -52,7 +52,7 @@ export function Hero() {
         <Reveal delay={320}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="#join"
+              href="/stress-test"
               className="inline-flex h-12 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.03] active:scale-95"
             >
               Join the Stress Test Program

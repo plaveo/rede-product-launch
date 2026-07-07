@@ -19,15 +19,17 @@ export function JoinRede() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent('REDE Stress Test Program — Request to Join')
-    const body = encodeURIComponent(
-      `Name: ${name}\nRole: ${role}\nEmail: ${email}\n\nI'd like to join the REDE Stress Test Program.`,
-    )
-    window.location.href = `mailto:hello@pepworld.com?subject=${subject}&body=${body}`
+    // Prefill the real /stress-test application with what we already have.
+    const params = new URLSearchParams()
+    if (name) params.set('name', name)
+    if (email) params.set('email', email)
+    if (role) params.set('role', role)
+    const query = params.toString()
+    window.location.href = query ? `/stress-test?${query}` : '/stress-test'
   }
 
   return (
-    <section id="join" className="relative mx-auto max-w-6xl px-5 py-28 md:px-8 md:py-40">
+    <section id="request" className="relative mx-auto max-w-6xl px-5 py-28 md:px-8 md:py-40">
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <p className="font-rede text-[13px] font-medium uppercase tracking-[0.25em] text-primary">

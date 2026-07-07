@@ -41,7 +41,7 @@ export function Nav() {
         </div>
 
         <a
-          href="#join"
+          href="/stress-test"
           className="rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
         >
           Request access

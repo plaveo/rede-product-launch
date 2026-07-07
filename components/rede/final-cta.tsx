@@ -30,7 +30,7 @@ export function FinalCta() {
 
         <Reveal delay={240}>
           <a
-            href="mailto:hello@pepworld.com?subject=REDE%20Stress%20Test%20Program"
+            href="/stress-test"
             className="mt-10 inline-flex h-13 min-w-[260px] items-center justify-center rounded-full bg-primary px-9 py-4 text-[15px] font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-transform hover:scale-[1.03] active:scale-95"
           >
             Request an invitation
