@@ -1,5 +1,18 @@
 import { pgTable, serial, text, integer, timestamp } from "drizzle-orm/pg-core"
 
+export const leads = pgTable("leads", {
+  id: serial("id").primaryKey(),
+  fullName: text("full_name").notNull(),
+  email: text("email").notNull(),
+  contact: text("contact").notNull(),
+  role: text("role"),
+  city: text("city"),
+  interest: text("interest"),
+  source: text("source").notNull().default("direct"),
+  status: text("status").notNull().default("new"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+})
+
 export const stressTestApplications = pgTable("stress_test_applications", {
   id: serial("id").primaryKey(),
   fullName: text("full_name").notNull(),
