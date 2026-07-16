@@ -46,6 +46,7 @@ export function Nav() {
             ['How it works', '/#how'],
             ['Lenses', '/#lenses'],
             ['Program', '/#program'],
+            ['Playbook', '/playbook'],
             ['Pricing', '/pricing'],
             ['Docs', '/docs'],
             ['The Book', '/book'],
